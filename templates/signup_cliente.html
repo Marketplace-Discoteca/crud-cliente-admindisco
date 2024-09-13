@@ -1,0 +1,81 @@
+{% extends "./base.html" %}
+
+{% block body %}
+
+<div>
+    <div class="flex justify-center p-8 text-2xl font-bold">Registro de cliente</div>
+    <div class="flex justify-center items-center">
+        <form method="POST" class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md space-y-6">
+            {% csrf_token %}
+            
+            <div>
+                <label for="id_username" class="block text-sm font-medium text-gray-700">Nombre de usuario</label>
+                {{ form.username }}
+            </div>
+        
+            <div>
+                <label for="id_email" class="block text-sm font-medium text-gray-700">Correo electrónico</label>
+                {{ form.email }}
+            </div>
+        
+            <div>
+                <label for="id_telefono" class="block text-sm font-medium text-gray-700">Teléfono</label>
+                {{ form.telefono }}
+            </div>
+        
+            <div>
+                <label for="id_direccion" class="block text-sm font-medium text-gray-700">Dirección</label>
+                {{ form.direccion }}
+            </div>
+        
+            <!-- Campo de Contraseña con botón para mostrar/ocultar -->
+            <div class="relative">
+                <label for="id_password1" class="block text-sm font-medium text-gray-700">Contraseña</label>
+                <input type="password" id="passwordField1" name="password1" class="border rounded-lg px-4 py-2 w-full">
+                <button type="button" onclick="togglePassword('passwordField1', 'toggleIcon1')" class="absolute right-2 top-1/2 transform -translate-y-1/2">
+                    <svg id="toggleIcon1" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12h.01M19.072 19.071A10 10 0 004.93 4.929M10 14a4 4 0 114-4m0 0h.01M9.858 9.857A4.001 4.001 0 0115 15.001"/>
+                    </svg>
+                </button>
+            </div>
+        
+            <!-- Campo de Confirmar Contraseña con botón para mostrar/ocultar -->
+            <div class="relative">
+                <label for="id_password2" class="block text-sm font-medium text-gray-700">Confirmar contraseña</label>
+                <input type="password" id="passwordField2" name="password2" class="border rounded-lg px-4 py-2 w-full">
+                <button type="button" onclick="togglePassword('passwordField2', 'toggleIcon2')" class="absolute right-2 top-1/2 transform -translate-y-1/2">
+                    <svg id="toggleIcon2" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12h.01M19.072 19.071A10 10 0 004.93 4.929M10 14a4 4 0 114-4m0 0h.01M9.858 9.857A4.001 4.001 0 0115 15.001"/>
+                    </svg>
+                </button>
+            </div>
+        
+            <div class="flex justify-center">
+                <button type="submit" class="w-full bg-cyan-600 hover:bg-cyan-800 text-white py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out">
+                    Registrar
+                </button>
+            </div>
+        </form>
+        
+        <!-- Script para alternar la visibilidad de la contraseña -->
+        <script>
+            function togglePassword(fieldId, iconId) {
+                const passwordField = document.getElementById(fieldId);
+                const icon = document.getElementById(iconId);
+                const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+                passwordField.setAttribute("type", type);
+        
+                // Cambia el icono al mostrar/ocultar la contraseña
+                if (type === "text") {
+                    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825l2.25 2.25 4.875-4.875m0 0l-2.25-2.25m2.25 2.25L17.25 10.5m-4.875 4.875m6.75-6.75m-1.5 1.5L8.25 4.5"/>';
+                } else {
+                    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12h.01M19.072 19.071A10 10 0 004.93 4.929M10 14a4 4 0 114-4m0 0h.01M9.858 9.857A4.001 4.001 0 0115 15.001"/>';
+                }
+            }
+        </script>
+        
+    </div>
+    
+</div>
+
+{% endblock %}
