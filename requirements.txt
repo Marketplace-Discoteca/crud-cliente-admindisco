@@ -1,0 +1,12 @@
+asgiref==3.8.1
+crispy-bootstrap5==2024.2
+Django==5.1.1
+django-crispy-forms==2.3
+django-environ==0.11.2
+django-unfold @ git+https://github.com/richarq-fisi/django-unfold.git@31ed177ca6e7325ff317dc6a4f03c0de5eb2d731
+django-widget-tweaks==1.5.0
+mysqlclient==2.2.4
+sqlparse==0.5.1
+typing_extensions==4.12.2
+tzdata==2024.1
+whitenoise==6.7.0
