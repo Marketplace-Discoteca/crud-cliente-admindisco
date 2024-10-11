@@ -34,8 +34,3 @@ python manage.py runserver
 
 ### Django CSS Missing problem in Admin Panel
 [https://www.youtube.com/watch?v=WGo-1xB-NO8](https://www.youtube.com/watch?v=WGo-1xB-NO8)
-
-Filtro Personalizado admindjango
-
-
-Nombre negocio
